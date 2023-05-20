@@ -1,0 +1,19 @@
+.center{
+    width: 60%;
+    margin: 10px auto;
+  }
+
+  .main-div{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button-width {
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+   
+  }

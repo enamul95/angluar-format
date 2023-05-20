@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from './services/menu.service';
-import { MenuModel } from './model/menu-model';
+import { MenuModel } from 'src/app/model/menu-model';
+import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-sidemenu',
+  templateUrl: './sidemenu.component.html',
+  styleUrls: ['./sidemenu.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'side-menu';
+export class SidemenuComponent implements OnInit{
 
   menuList?: MenuModel[]
 
@@ -36,7 +35,4 @@ export class AppComponent implements OnInit {
       }
     })
   }
-
-  
-
 }

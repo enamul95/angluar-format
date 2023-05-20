@@ -1,0 +1,51 @@
+<div class="main-div">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <!-- <mat-card-subtitle>Login</mat-card-subtitle> -->
+      <mat-card-title>Login</mat-card-title>
+      <span></span>
+      <span></span>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Email/Mobile</mat-label>
+            <input
+              matInput
+              placeholder="Please Enter Email/Mobile"
+              formControlName="email"
+            />
+            <mat-icon matSuffix>mail_outline</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              matInput
+              placeholder="Please Enter Password"
+              formControlName="password"
+            />
+            <mat-icon matSuffix>lock_open</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <button mat-raised-button color="primary" class="button-width">
+            Login
+          </button>
+        </div>
+      </form>
+
+      <mat-card-footer text-right>
+        <mat-divider></mat-divider>
+        <span></span>
+        <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+        <small><a routerLink="../forget-password">Forget Password</a></small>
+      </mat-card-footer>
+    </mat-card-content>
+  </mat-card>
+</div>
