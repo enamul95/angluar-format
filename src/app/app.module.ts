@@ -21,7 +21,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card'; 
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+import {MatSidenavModule} from '@angular/material/sidenav'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    MatSidenavModule,
+    BrowserAnimationsModule
     
   ],
   providers: [],

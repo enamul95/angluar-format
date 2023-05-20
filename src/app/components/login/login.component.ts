@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SnackbarService } from 'src/app/core/snackbar.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -16,7 +17,11 @@ export class LoginComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(private auth:AuthService,private router: Router){}
+  constructor(
+    private auth:AuthService,
+    private router: Router,
+    private snackbarService:SnackbarService
+    ){}
 
   ngOnInit(): void {
     if (this.auth.isLoggedIn()) {
@@ -26,6 +31,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
    console.log(this.loginForm.value)
+
    if (this.loginForm.valid) {
     this.auth.login(this.loginForm.value).subscribe(
       (result) => {
@@ -33,6 +39,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/admin']);
       },
       (err: Error) => {
+        //this.snackbarService.openSnackBar(err.message)
         alert(err.message);
       }
     );
@@ -40,6 +47,7 @@ export class LoginComponent implements OnInit {
   }
 
 
+  
  
 }
 

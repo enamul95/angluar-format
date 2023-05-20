@@ -17,3 +17,8 @@
     width: 100%;
    
   }
+
+  .style-error {
+    color: white;
+    --mdc-snackbar-container-color: #FF005D !important;
+}

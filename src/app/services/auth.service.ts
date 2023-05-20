@@ -27,7 +27,7 @@ export class AuthService {
   }
 
   login({ email, password }: any): Observable<any> {
-    if (email === 'admin@gmail.com' && password === 'admin123') {
+    if (email === 'enamul@gmail.com' && password === '123') {
       this.setToken('abcdefghijklmnopqrstuvwxyz');
       return of({ name: 'Enamul Haque', email: 'admin@gmail.com' });
     }
