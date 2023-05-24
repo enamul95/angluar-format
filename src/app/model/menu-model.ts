@@ -1,7 +1,7 @@
 
 
 export interface MenuModel {
-    menuName: string,
+    parentMenuNme: string,
     icon: string,
     routerLink?: string;
     children: MenuItemModel[]
