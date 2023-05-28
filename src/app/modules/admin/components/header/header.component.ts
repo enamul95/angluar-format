@@ -9,7 +9,10 @@ import { MenuService } from 'src/app/services/menu.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
-  
+
+  selectedItem?: number; // Assuming the item is identified by a numeric value
+
+
   menuList?: MenuModel[]
   constructor(
     private auth:AuthService,
@@ -18,6 +21,12 @@ export class HeaderComponent implements OnInit{
   ngOnInit(): void {
     this.getMeus()
   }
+
+ selectItem(item: number): void {
+  this.selectedItem = item;
+}
+
+
 
   logout():void{
     this.auth.logout()
@@ -37,6 +46,8 @@ export class HeaderComponent implements OnInit{
       }
     })
   }
+
+
 
 
 }

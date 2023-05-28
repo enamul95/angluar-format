@@ -33,28 +33,64 @@
     <ng-template #parentMenu let-menu="menu">
       <mat-list-item
         [routerLink]="menu.routerLink"
-        routerLinkActive="is-active"
+        [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        <mat-icon>{{ menu.icon }}</mat-icon> {{ menu.parentMenuNme }}
+        <div class="icon-wrapper">
+          <mat-icon class="mat-icon-padding">{{ menu.icon }}</mat-icon>
+          {{ menu.parentMenuNme }}
+        </div>
       </mat-list-item>
     </ng-template>
 
     <ng-template #childMenu let-menu="menu">
       <mat-expansion-panel [class.mat-elevation-z0]="true">
         <mat-expansion-panel-header>
-          <mat-icon mat-list-icon>{{ menu.icon }}</mat-icon
-          >{{ menu.parentMenuNme }}
+          <div class="icon-wrapper">
+            <mat-icon class="mat-icon-padding" mat-list-icon>{{
+              menu.icon
+            }}</mat-icon
+            >{{ menu.parentMenuNme }}
+          </div>
         </mat-expansion-panel-header>
         <mat-nav-list>
+          <!-- (click)="sidenav.close()" -->
           <mat-list-item
             [routerLink]="submenu.routerLink"
             *ngFor="let submenu of menu.children"
-            routerLinkActive="is-active"
+            [routerLinkActive]="['active']"
             [routerLinkActiveOptions]="{ exact: true }"
+            [class.selected-item]="submenu === selectedItem"
+            (click)="selectItem(submenu)"
           >
-            <mat-icon>{{ submenu.icon }}</mat-icon> {{ submenu.menuName }}
+            <div class="icon-wrapper">
+              <mat-icon
+                class="mat-icon-padding"
+                [class.selected-item-icon]="submenu === selectedItem"
+                matListIcon
+                >{{ submenu.icon }}</mat-icon
+              >
+              <span [class.selected-item-icon]="submenu === selectedItem">{{
+                submenu.menuName
+              }}</span>
+            </div>
           </mat-list-item>
+
+          <!-- <a
+            *ngFor="let submenu of menu.children"
+            mat-list-item
+            (click)="sidenav.close()"
+            routerLinkActive
+            #routerLinkActiveInstance="routerLinkActive"
+            [attr.tabindex]="routerLinkActiveInstance.isActive ? 0 : -1"
+            [class.list-item-active]="routerLinkActiveInstance.isActive"
+            [routerLink]="[submenu.routerLink]"
+          >
+            <mat-icon matListIcon class="nav-list-icon">{{
+              submenu.icon
+            }}</mat-icon>
+            {{ submenu.menuName }}
+          </a> -->
         </mat-nav-list>
       </mat-expansion-panel>
     </ng-template>
